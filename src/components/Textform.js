@@ -45,18 +45,18 @@ export default function Textform(props) {
             <h1>{props.heading}</h1>
             <div className="mb-3">
                 
-                <textarea className="form-control" value={text} style={{backgroundColor: props.mode==='dark'?'grey':'white',color : props.mode==='dark'?'white':'#0a0d7a'}} onChange={handleUpchange} id="mybox" rows="8"></textarea>
+                <textarea className="form-control" value={text} style={{backgroundColor: props.mode==='dark'?'#5f54b7':'white',color : props.mode==='dark'?'white':'#0a0d7a'}} onChange={handleUpchange} id="mybox" rows="8"></textarea>
             </div>
-            <button className='btn btn-primary mx-1' onClick={handleUpclick}>Convert to upparcase</button>
-            <button className='btn btn-primary mx-1' onClick={handleLowclick}>Convert to lowercase</button>
-            <button className='btn btn-primary mx-1' onClick={handleClearclick}>Clear text</button>
-            <button className='btn btn-primary mx-1' onClick={handleCopyclick}>Copy text</button>
-            <button className='btn btn-primary mx-1' onClick={handleRemoveSpaceclick}>Remove Extra Space</button>
+            <button className='btn btn-primary mx-1 my-1' onClick={handleUpclick}>Convert to upparcase</button>
+            <button className='btn btn-primary mx-1 my-1' onClick={handleLowclick}>Convert to lowercase</button>
+            <button className='btn btn-primary mx-1 my-1' onClick={handleClearclick}>Clear text</button>
+            <button className='btn btn-primary mx-1 my-1' onClick={handleCopyclick}>Copy text</button>
+            <button className='btn btn-primary mx-1 my-1' onClick={handleRemoveSpaceclick}>Remove Extra Space</button>
     </div>
     <div className="container my-3" style={{color : props.mode==='dark'?'white':'#0a0d7a'}}>
       <h1>Your text summary </h1>
-      <p>{text.split(" ").length } words and {text.length} characters</p>
-      <p>{0.008 * text.split(" ").length } minutes to Read</p>
+      <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+      <p>{0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length } minutes to Read</p>
       <h3>Preview</h3>
           <p>{text.length>0?text:"Enter something to preview"}</p>
       </div>
